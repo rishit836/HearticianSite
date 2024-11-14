@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Heartician</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img src="../static/anatomical-heart.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+          Heartician 
+        </a>
+        <a class="navbar-brand" href="/">
+          Heart Attack Predictor
+        </a>
+        <a class="navbar-brand" href="/chart">
+          ECG dashboard
+        </a>
+      </div>
+    </nav>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <center>
+        <h1 class="Title">
+            Heartician Predictor App
+        </h1>
+        {% if done %}
+            <br>
+            {% if test %}
+            
+            <div class="alert alert-danger" role="alert">
+              {{pred}}
+            </div>
+            <br>
+            {% else%}
+            <br>
+            <div class="alert alert-success" role="alert">
+              {{pred}}
+            </div>
+            <br>
+            {% endif %}
+        {% else %}
+        <div class="alert alert-light" role="alert">
+          Please Fill Out the Form!
+        </div>
+        {% endif %}
+
+        <div class="namemdiv">
+        <form class="formclass" method="post">
+          <div class="mb-2">
+            <h3>Age</h3>
+            <input type="text" class="form-control" id="age" aria-describedby="emailHelp" name="age">
+          </div>
+          <div class="mb-2">
+            <h3>Gender</h3>
+            <input class="form-control" list="datalistOptions" id="gender" name="gender">
+            <datalist id="datalistOptions">
+              <option value="Male">
+              <option value="Female">
+            </datalist>
+            <h3>ChestPain</h3>
+            <input class="form-control" list="d1" name="cp" >
+            <datalist id="d1">
+              <option value="Asymptomatic">
+              <option value="Atypical Angina">
+              <option value="Non-Anginal Pain">
+              <option value="Typical Angina">
+            </datalist>
+
+            <h3>Cholestrol</h3>
+            <input class="form-control" list="d2" name="chol" >
+            <datalist id="d2">
+              <option value="High">
+              <option value="Low">
+            </datalist>
+            <h3>Pain while Excercising</h3>
+            <input class="form-control" list="d3" name="eng" >
+            <datalist id="d3">
+              <option value="Yes">
+              <option value="No">
+            </datalist>
+            <h3>Blood Pressure</h3>
+            <input type="text" class="form-control" name="bp" aria-describedby="emailHelp">
+            <h3>Blood Sugar Level (Fasting)
+              <div id="emailHelp" class="form-text">(If higher than 120 than 1 else 0)</div>
+            </h3>
+            
+            <input type="text" class="form-control" name="fbs" aria-describedby="emailHelp">
+            <h3>Maximum Heart Rate Achieved
+            </h3>
+            <input type="text" class="form-control" name="hr" aria-describedby="emailHelp">
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="submitbutton">Submit</button>
+        </form>
+      </div>
+      </center>
+
+      
+   
+  </body>
+</html>
