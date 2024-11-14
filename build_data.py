@@ -12,9 +12,9 @@ while True:
         data = response.json()
         ecg_value = data.get("ecgVal")
 
-        with open("labels.txt","a") as f:
+        with open("static/labels.txt","a") as f:
             f.write(str(datetime.datetime.now().strftime("%H:%M:%S"))+",")
-        with open("values.txt","a") as f1:
+        with open("static/values.txt","a") as f1:
             f1.write(str(ecg_value)+",")
         print("value Written", str(datetime.datetime.now().strftime("%H:%M:%S"))+",",ecg_value)
 
